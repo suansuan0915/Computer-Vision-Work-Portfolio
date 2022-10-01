@@ -4,5 +4,5 @@
 - Still Updating!
 
 - Project 1\
-Convolutional Neural Network (CNN) Implementation - pure implementation. 
+Convolutional Neural Network (CNN) Implementation - pure implementation. \
 Tool: Matlab
