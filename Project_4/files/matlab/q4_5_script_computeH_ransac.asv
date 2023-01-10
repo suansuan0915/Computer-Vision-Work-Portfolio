@@ -1,0 +1,19 @@
+%% Script Testing Q4.3. Homography Computation
+
+%% read images
+cv_cover = imread('../data/cv_cover.jpg');
+cv_desk = imread('../data/cv_desk.png');
+
+%% get match points
+[x1, x2] = matchPics(cv_cover, cv_desk);
+[bestH2to1, inliers] = computeH_ransac(x1, x2);  % Q4.5 - best H2to1
+ones_loc = find(inliers);
+in = x1(ones_loc, :);
+
+% use data given inliers
+tform = projtform2d(bestH2to1);  %projtform2d or projective2d
+out = transformPointsForward(tform, in);
+
+%% plot
+figure;
+showMatchedFeatures(cv_cover, cv_desk, in, out, 'montage');
